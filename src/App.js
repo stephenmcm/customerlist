@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.scss";
 import CustomerForm from "./features/customers/CustomerForm";
+import VisibleCustomersList from "./features/customers/VisibleCustomersList";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       </header>
       <div>
         <CustomerForm />
+      </div>
+      <div>
+        <VisibleCustomersList />
       </div>
       <footer>
         Made with{" "}

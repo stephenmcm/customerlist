@@ -18,7 +18,7 @@ const customersSlice = createSlice({
           searchText: `${firstName} ${lastName}`,
         };
       },
-      prepare({ id, firstName, lastName, dateOfBirth }) {
+      prepare({ firstName, lastName, dateOfBirth }) {
         return {
           payload: {
             firstName,

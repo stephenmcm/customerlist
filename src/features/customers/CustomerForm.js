@@ -17,10 +17,8 @@ const CustomerForm = ({ addCustomer }) => {
         dateOfBirth: "",
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+        addCustomer(values);
+        setSubmitting(false);
       }}
       validationSchema={Yup.object({
         firstName: Yup.string().required("First name is required"),
