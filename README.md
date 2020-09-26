@@ -1,3 +1,14 @@
+# Customer List
+
+Build a simple Front End Application that allows:
+
+- Adding customers
+- First name, last name and date of birth fields
+- Editing customers
+- Deleting customers
+- Searching for a customer by partial name match (first or last name)
+- Add mock APIs to handle the above activities
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
