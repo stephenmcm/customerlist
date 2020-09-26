@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .Button {
   box-sizing: border-box;
   display: block;
@@ -5,12 +7,12 @@
   font-size: 16px;
   margin: 0;
   padding: 0.5rem;
-  border: 1px solid #303030;
-  color: #5f5f5f;
-  background-color: #ddd;
+  border: 1px solid $primary;
+  color: $primary-light;
+  background-color: $primary;
   &:global(:disabled) {
     color: #5f5f5f;
-    background-color: #f1f1f1;
-    border: 1px solid #ebebeb;
+    background-color: lighten($primary, 50);
+    border: lighten($primary, 20);
   }
 }

@@ -5,6 +5,7 @@ import { addCustomer } from "./customersSlice";
 import { FormControl } from "../../components/FormControl";
 import * as Yup from "yup";
 import { Button } from "../../components/Button";
+import fStyle from "../../components/FormControl.module.scss";
 
 const mapDispatch = { addCustomer };
 
@@ -52,7 +53,7 @@ const CustomerForm = ({ addCustomer }) => {
             id="dateOfBirth"
             isRequired={true}
           />
-          <div className="formControl">
+          <div className={fStyle.FormControl}>
             <Button
               data-testid="addButton"
               type="submit"

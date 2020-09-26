@@ -1,2 +1,26 @@
-$red: rgba(255, 0, 0, 1);
-$redTransparent: rgba($red, 0.05);
+/* SCSS RGB */
+$spanish-violet: rgba(59, 33, 110, 1);
+$lavender-web: rgba(231, 224, 246, 1);
+$chinese-red: rgba(165, 63, 43, 1);
+$snow: rgba(251, 241, 239, 1);
+$orange-yellow-crayola: rgba(239, 203, 104, 1);
+$field-drab: rgba(87, 69, 15, 1);
+$cultured: rgba(244, 246, 245, 1);
+$gray-x-11-gray: hsla(240, 2%, 72%, 1);
+$jet: rgba(62, 59, 68, 1);
+$dark-purple: rgba(25, 14, 47, 1);
+$slate-blue: hsla(260, 54%, 56%, 1);
+
+/* SCSS Types */
+$foreground: $jet;
+$background: $cultured;
+$primary: $spanish-violet;
+$primary-light: $lavender-web;
+$danger: $chinese-red;
+$danger-light: $snow;
+$warning: $orange-yellow-crayola;
+$warning-light: $field-drab;
+$border: $gray-x-11-gray;
+$link-visited: $dark-purple;
+$link: $spanish-violet;
+$link-hover: $slate-blue;
