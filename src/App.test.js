@@ -11,5 +11,5 @@ test("renders learn react link", () => {
     </Provider>
   );
 
-  expect(getByText(/Made by Stephen McMahon/i)).toBeInTheDocument();
+  expect(getByText(/by Stephen McMahon/i)).toBeInTheDocument();
 });
