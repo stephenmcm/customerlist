@@ -1,39 +1,60 @@
+@import "variables.scss";
+
 .App {
-  text-align: center;
+  padding: 1rem;
+  max-width: 320px;
+  flex: 1 0 302px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
+.logInForm {
+  & legend {
+    text-align: center;
+    font-size: 120%;
   }
-}
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
-.App-link {
-  color: rgb(112, 76, 182);
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
+  & .formControl {
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    & label {
+      display: block;
+      padding-bottom: 0.5rem;
+    }
+    & input,
+    button {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      margin: 0;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+    }
+    & button {
+      padding: 0.5rem;
+    }
+    & .error {
+      border: 2px solid $red;
+    }
+    & .errtext {
+      border-top: none;
+    }
   }
-  50% {
-    transform: translateY(10px)
-  }
-  100% {
-    transform: translateY(0px)
+  & .errtext {
+    border: 2px solid $red;
+    background-color: $redTransparent;
+    padding: 0.25rem;
+    margin: 0;
   }
 }

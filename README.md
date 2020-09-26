@@ -9,6 +9,10 @@ Build a simple Front End Application that allows:
 - Searching for a customer by partial name match (first or last name)
 - Add mock APIs to handle the above activities
 
+## Notes
+
+For the purpose of this exercise first and last name are both required, this is a [Falsehoods Programmers Believe About Names](https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/). I've left it in as it give a chance to demostrate some search text building understanding.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
