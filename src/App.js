@@ -2,6 +2,7 @@ import React from "react";
 import "./App.scss";
 import CustomerForm from "./features/customers/CustomerForm";
 import VisibleCustomersList from "./features/customers/VisibleCustomersList";
+import SearchBar from "./features/filters/SearchBar";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       </header>
       <div>
         <CustomerForm />
+      </div>
+      <div>
+        <SearchBar />
       </div>
       <div>
         <VisibleCustomersList />

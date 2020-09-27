@@ -12,7 +12,7 @@ const CustomerList = ({ customers, deleteCustomer }) => {
         <div className={styles.CustomerCol}>Birthday</div>
         <div className={styles.CustomerCol}></div>
       </div>
-      {Object.values(customers).map((customer) => (
+      {customers.map((customer) => (
         <CustomerRow
           key={customer.id}
           customer={customer}
@@ -24,7 +24,7 @@ const CustomerList = ({ customers, deleteCustomer }) => {
 };
 
 CustomerList.propTypes = {
-  customers: PropTypes.objectOf(
+  customers: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       firstName: PropTypes.string,

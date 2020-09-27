@@ -1,25 +1,20 @@
 import { connect } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import { deleteCustomer } from "./customersSlice";
-// import { VisibilityFilters } from "features/filters/filtersSlice";
 import CustomerList from "./CustomerList";
 
 const selectCustomers = (state) => state.customers.byID;
-const selectFilter = (state) => true;
+const searchFilter = (state) => state.visibilityFilter.searchString;
 
 const selectVisibleCustomers = createSelector(
-  [selectCustomers, selectFilter],
+  [selectCustomers, searchFilter],
   (customers, filter) => {
-    switch (filter) {
-      case true:
-        return customers;
-      //   case VisibilityFilters.SHOW_COMPLETED:
-      //     return customers.filter((t) => t.completed);
-      //   case VisibilityFilters.SHOW_ACTIVE:
-      //     return customers.filter((t) => !t.completed);
-      default:
-        throw new Error("Unknown filter: " + filter);
+    if (filter.length > 2) {
+      return Object.values(customers).filter((c) =>
+        c.searchText.includes(filter)
+      );
     }
+    return Object.values(customers);
   }
 );
 
