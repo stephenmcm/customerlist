@@ -1,26 +1,41 @@
 import { Form, Formik } from "formik";
 import React from "react";
 import { connect } from "react-redux";
-import { addCustomer } from "./customersSlice";
+import { addCustomer, editCustomer } from "./customersSlice";
 import { FormControl } from "../../components/FormControl";
 import * as Yup from "yup";
 import { Button } from "../../components/Button";
 import fStyle from "../../components/FormControl.module.scss";
 import styles from "./Customer.module.scss";
 
-const mapDispatch = { addCustomer };
+const mapDispatch = { addCustomer, editCustomer };
 
-const CustomerForm = ({ addCustomer }) => {
+const CustomerForm = ({
+  addCustomer,
+  editCustomer,
+  customer,
+  toggleShowForm,
+}) => {
+  const values = customer ?? {
+    firstName: "",
+    lastName: "",
+    dateOfBirth: "",
+  };
+
   return (
     <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        dateOfBirth: "",
-      }}
+      initialValues={values}
       onSubmit={(values, { setSubmitting }) => {
-        addCustomer(values);
+        if (!customer) {
+          addCustomer(values);
+        }
+        if (customer) {
+          editCustomer({ id: customer.id, ...values });
+        }
         setSubmitting(false);
+        if (toggleShowForm) {
+          toggleShowForm(false);
+        }
       }}
       validationSchema={Yup.object({
         firstName: Yup.string().required("First name is required"),
@@ -30,7 +45,7 @@ const CustomerForm = ({ addCustomer }) => {
     >
       {({ isSubmitting, isValid }) => (
         <Form className="addCustomerForm">
-          <legend>Add Customer</legend>
+          <legend>{customer ? "Update" : "Add"} Customer</legend>
           <div className={styles.CustomerRow}>
             <div className={styles.CustomerCol}>
               <FormControl
@@ -68,8 +83,18 @@ const CustomerForm = ({ addCustomer }) => {
                   type="submit"
                   disabled={isSubmitting || !isValid}
                 >
-                  Add
+                  {customer ? "Update" : "Add"}
                 </Button>
+                {toggleShowForm && (
+                  <Button
+                    data-testid="cancelButton"
+                    type="reset"
+                    onClick={() => toggleShowForm(false)}
+                    disabled={isSubmitting || !isValid}
+                  >
+                    Cancel
+                  </Button>
+                )}
               </div>
             </div>
           </div>

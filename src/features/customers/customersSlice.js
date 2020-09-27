@@ -29,6 +29,18 @@ const customersSlice = createSlice({
         };
       },
     },
+    editCustomer(state, action) {
+      const { id, firstName, lastName, dateOfBirth } = action.payload;
+      state.byID[id] = {
+        id,
+        firstName,
+        lastName,
+        dateOfBirth,
+        // @TODO Rework handling of editting deleted customers
+        deleted: false,
+        searchText: `${firstName} ${lastName}`,
+      };
+    },
     deleteCustomer(state, action) {
       const customer = state.byID[action.payload];
       if (customer) {
@@ -38,6 +50,10 @@ const customersSlice = createSlice({
   },
 });
 
-export const { addCustomer, deleteCustomer } = customersSlice.actions;
+export const {
+  addCustomer,
+  deleteCustomer,
+  editCustomer,
+} = customersSlice.actions;
 
 export default customersSlice.reducer;

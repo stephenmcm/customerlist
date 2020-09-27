@@ -1,4 +1,8 @@
-import customers, { addCustomer, deleteCustomer } from "./customersSlice";
+import customers, {
+  addCustomer,
+  deleteCustomer,
+  editCustomer,
+} from "./customersSlice";
 
 describe("customers reducer", () => {
   it("should handle initial state", () => {
@@ -131,6 +135,61 @@ describe("customers reducer", () => {
       },
     });
   });
+
+  it("should handle edit customer", () => {
+    expect(
+      customers(
+        {
+          byID: {
+            0: {
+              dateOfBirth: "01/02/2019",
+              deleted: false,
+              firstName: "Test",
+              id: 0,
+              lastName: "User",
+              searchText: "Test User",
+            },
+            1: {
+              dateOfBirth: "01/02/2019",
+              deleted: false,
+              firstName: "Other",
+              id: 1,
+              lastName: "Test",
+              searchText: "Other Test",
+            },
+          },
+        },
+        {
+          type: editCustomer.type,
+          payload: {
+            id: 0,
+            dateOfBirth: "01/02/2019",
+            firstName: "Test",
+            lastName: "Edited",
+          },
+        }
+      )
+    ).toEqual({
+      byID: {
+        0: {
+          id: 0,
+          dateOfBirth: "01/02/2019",
+          deleted: false,
+          firstName: "Test",
+          lastName: "Edited",
+          searchText: "Test Edited",
+        },
+        1: {
+          dateOfBirth: "01/02/2019",
+          deleted: false,
+          firstName: "Other",
+          id: 1,
+          lastName: "Test",
+          searchText: "Other Test",
+        },
+      },
+    });
+  });
 });
 
 describe("addCustomer", () => {
@@ -157,6 +216,23 @@ describe("addCustomer", () => {
       dateOfBirth: "01/02/2019",
       firstName: "Other",
       lastName: "Test",
+    });
+  });
+});
+
+describe("editCustomer", () => {
+  it("should update customer", () => {
+    const action = editCustomer({
+      id: 0,
+      dateOfBirth: "01/02/2019",
+      firstName: "Test",
+      lastName: "Edited",
+    });
+    expect(action.payload).toEqual({
+      id: 0,
+      dateOfBirth: "01/02/2019",
+      firstName: "Test",
+      lastName: "Edited",
     });
   });
 });

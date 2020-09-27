@@ -16,7 +16,7 @@ const CustomerList = ({ customers, deleteCustomer }) => {
         <CustomerRow
           key={customer.id}
           customer={customer}
-          onClick={() => deleteCustomer(customer.id)}
+          deleteCustomer={() => deleteCustomer(customer.id)}
         />
       ))}
     </div>
@@ -26,6 +26,7 @@ const CustomerList = ({ customers, deleteCustomer }) => {
 CustomerList.propTypes = {
   customers: PropTypes.objectOf(
     PropTypes.shape({
+      id: PropTypes.number,
       firstName: PropTypes.string,
       lastName: PropTypes.string,
       dateOfBirth: PropTypes.string,

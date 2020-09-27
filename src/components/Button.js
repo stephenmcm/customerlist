@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Button.module.scss";
 
-export const Button = ({ type, children, ...props }) => {
+export const Button = ({ variety, children, ...props }) => {
   let classNames = `${styles.Button}`;
-  if (type === "danger") {
+  if (variety === "danger") {
     classNames = `${classNames} ${styles.Danger}`;
   }
   if (props.className) {
