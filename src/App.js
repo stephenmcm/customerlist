@@ -7,7 +7,7 @@ import SearchBar from "./features/filters/SearchBar";
 function App() {
   return (
     <div className="App">
-      <header>
+      <header className="AppHeader">
         <h1>Customer List</h1>
       </header>
       <div>
