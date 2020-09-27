@@ -50,7 +50,6 @@ const CustomerForm = ({
             <div className={styles.CustomerCol}>
               <FormControl
                 label="First Name"
-                type="firstName"
                 name="firstName"
                 id="firstName"
                 placeholder=""
@@ -60,7 +59,6 @@ const CustomerForm = ({
             <div className={styles.CustomerCol}>
               <FormControl
                 label="Last Name"
-                type="lastName"
                 name="lastName"
                 id="lastName"
                 placeholder=""
