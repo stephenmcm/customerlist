@@ -55,8 +55,9 @@ code {
 }
 
 .App {
+  box-sizing: border-box;
+  max-width: 100vw;
   padding: 1rem;
-  max-width: 320px;
   flex: 1 0 302px;
 }
 

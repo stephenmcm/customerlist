@@ -1,28 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CustomerRow from "./CustomerRow";
+import styles from "./Customer.module.scss";
 
 const CustomerList = ({ customers, deleteCustomer }) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Birthday</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {Object.values(customers).map((customer) => (
-          <CustomerRow
-            key={customer.id}
-            customer={customer}
-            onClick={() => deleteCustomer(customer.id)}
-          />
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <div className={styles.CustomerRow}>
+        <div className={styles.CustomerCol}>First Name</div>
+        <div className={styles.CustomerCol}>Last Name</div>
+        <div className={styles.CustomerCol}>Birthday</div>
+        <div className={styles.CustomerCol}></div>
+      </div>
+      {Object.values(customers).map((customer) => (
+        <CustomerRow
+          key={customer.id}
+          customer={customer}
+          onClick={() => deleteCustomer(customer.id)}
+        />
+      ))}
+    </div>
   );
 };
 
