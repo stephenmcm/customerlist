@@ -4,6 +4,8 @@ import { format } from "date-fns";
 import { Button } from "../../components/Button";
 import styles from "./Customer.module.scss";
 import CustomerForm from "./CustomerForm";
+import { connect, useDispatch } from "react-redux";
+import { deleteCustomer, removeCustomer } from "./customersSlice";
 
 const ReadRow = ({ customer, toggleShowForm, deleteCustomer }) => (
   <div className={styles.CustomerRow}>
@@ -21,21 +23,27 @@ const ReadRow = ({ customer, toggleShowForm, deleteCustomer }) => (
   </div>
 );
 
-const CustomerRow = ({ deleteCustomer, customer }) => {
+const CustomerRow = ({ customer, deleteCustomer }) => {
   const [showForm, toggleShowForm] = useState(false);
+  const dispatch = useDispatch();
+
+  const deleteCust = () => {
+    deleteCustomer(customer.id);
+    dispatch(removeCustomer(customer));
+  };
+
   return showForm ? (
     <CustomerForm customer={customer} toggleShowForm={toggleShowForm} />
   ) : (
     <ReadRow
       customer={customer}
       toggleShowForm={toggleShowForm}
-      deleteCustomer={deleteCustomer}
+      deleteCustomer={deleteCust}
     />
   );
 };
 
 CustomerRow.propTypes = {
-  deleteCustomer: PropTypes.func.isRequired,
   customer: PropTypes.shape({
     id: PropTypes.number,
     firstName: PropTypes.string,
@@ -45,4 +53,6 @@ CustomerRow.propTypes = {
   }).isRequired,
 };
 
-export default CustomerRow;
+const mapDispatchToProps = { deleteCustomer };
+
+export default connect(null, mapDispatchToProps)(CustomerRow);

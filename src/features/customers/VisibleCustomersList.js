@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
-import { deleteCustomer } from "./customersSlice";
 import CustomerList from "./CustomerList";
 
 const selectCustomers = (state) => state.customers.byID;
@@ -25,6 +24,4 @@ const mapStateToProps = (state) => ({
   customers: selectVisibleCustomers(state),
 });
 
-const mapDispatchToProps = { deleteCustomer };
-
-export default connect(mapStateToProps, mapDispatchToProps)(CustomerList);
+export default connect(mapStateToProps, null)(CustomerList);

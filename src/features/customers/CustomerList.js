@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import CustomerRow from "./CustomerRow";
 import styles from "./Customer.module.scss";
 
-const CustomerList = ({ customers, deleteCustomer }) => {
+const CustomerList = ({ customers }) => {
   return (
     <div>
       <div className={styles.CustomerRow}>
@@ -13,11 +13,7 @@ const CustomerList = ({ customers, deleteCustomer }) => {
         <div className={styles.CustomerCol}></div>
       </div>
       {customers.map((customer) => (
-        <CustomerRow
-          key={customer.id}
-          customer={customer}
-          deleteCustomer={() => deleteCustomer(customer.id)}
-        />
+        <CustomerRow key={customer.id} customer={customer} />
       ))}
     </div>
   );
@@ -33,7 +29,6 @@ CustomerList.propTypes = {
       deleted: PropTypes.bool.isRequired,
     })
   ).isRequired,
-  deleteCustomer: PropTypes.func.isRequired,
 };
 
 export default CustomerList;

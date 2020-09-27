@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import React from "react";
-import { connect } from "react-redux";
-import { addCustomer, editCustomer } from "./customersSlice";
+import { connect, useDispatch } from "react-redux";
+import { addCustomer, editCustomer, saveCustomer } from "./customersSlice";
 import { FormControl } from "../../components/FormControl";
 import * as Yup from "yup";
 import { Button } from "../../components/Button";
@@ -21,6 +21,7 @@ const CustomerForm = ({
     lastName: "",
     dateOfBirth: "",
   };
+  const dispatch = useDispatch();
 
   return (
     <Formik
@@ -32,6 +33,7 @@ const CustomerForm = ({
         if (customer) {
           editCustomer({ id: customer.id, ...values });
         }
+        dispatch(saveCustomer(customer));
         setSubmitting(false);
         if (toggleShowForm) {
           toggleShowForm(false);
