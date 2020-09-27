@@ -16,17 +16,18 @@ const CustomerForm = ({
   customer,
   toggleShowForm,
 }) => {
-  const values = customer ?? {
+  const initialValues = {
     firstName: "",
     lastName: "",
     dateOfBirth: "",
   };
+  const values = customer ?? initialValues;
   const dispatch = useDispatch();
 
   return (
     <Formik
       initialValues={values}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         if (!customer) {
           addCustomer(values);
         }
@@ -35,6 +36,7 @@ const CustomerForm = ({
         }
         dispatch(saveCustomer(customer));
         setSubmitting(false);
+        resetForm(initialValues);
         if (toggleShowForm) {
           toggleShowForm(false);
         }
@@ -77,24 +79,30 @@ const CustomerForm = ({
               />
             </div>
             <div className={styles.CustomerCol}>
-              <div className={fStyle.FormControl}>
-                <Button
-                  data-testid="addButton"
-                  type="submit"
-                  disabled={isSubmitting || !isValid}
-                >
-                  {customer ? "Update" : "Add"}
-                </Button>
-                {toggleShowForm && (
-                  <Button
-                    data-testid="cancelButton"
-                    type="reset"
-                    onClick={() => toggleShowForm(false)}
-                    disabled={isSubmitting || !isValid}
-                  >
-                    Cancel
-                  </Button>
-                )}
+              <div className={`${fStyle.FormControl} ${fStyle.FormButtons}`}>
+                <div className={styles.ButtonRow}>
+                  <div className={styles.ButtonCol}>
+                    <Button
+                      data-testid="addButton"
+                      type="submit"
+                      disabled={isSubmitting || !isValid}
+                    >
+                      {customer ? "Update" : "Add"}
+                    </Button>
+                  </div>
+                  <div className={styles.ButtonCol}>
+                    <Button
+                      data-testid="cancelButton"
+                      type="reset"
+                      onClick={() => {
+                        if (toggleShowForm) toggleShowForm(false);
+                      }}
+                      disabled={isSubmitting}
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

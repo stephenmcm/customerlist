@@ -3,7 +3,7 @@
   flex-direction: row;
   flex: 1 0 100%;
   max-width: 100%;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .CustomerCol {
@@ -12,4 +12,18 @@
   max-width: 25%;
   overflow-wrap: break-word;
   padding: 0.5rem;
+}
+
+.ButtonRow {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 100%;
+  max-width: 100%;
+  align-items: center;
+}
+
+.ButtonCol {
+  flex: 1 0 0;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
 }

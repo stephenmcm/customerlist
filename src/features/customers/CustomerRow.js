@@ -15,10 +15,16 @@ const ReadRow = ({ customer, toggleShowForm, deleteCustomer }) => (
       {format(new Date(customer.dateOfBirth), "dd/MM/yyyy")}
     </div>
     <div className={styles.CustomerCol}>
-      <Button onClick={() => toggleShowForm(true)}>Edit</Button>
-      <Button variety="danger" onClick={deleteCustomer}>
-        Delete
-      </Button>
+      <div className={styles.ButtonRow}>
+        <div className={styles.ButtonCol}>
+          <Button onClick={() => toggleShowForm(true)}>Edit</Button>
+        </div>
+        <div className={styles.ButtonCol}>
+          <Button variety="danger" onClick={deleteCustomer}>
+            Delete
+          </Button>
+        </div>
+      </div>
     </div>
   </div>
 );

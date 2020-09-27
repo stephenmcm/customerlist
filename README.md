@@ -13,6 +13,9 @@ Build a simple Front End Application that allows:
 
 For the purpose of this exercise first and last name are both required, this is a [Falsehoods Programmers Believe About Names](https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/). I've left it in as it give a chance to demostrate some search text building understanding.
 
+The mock API is very bare, the use of [createAsyncThunk](https://redux-toolkit.js.org/api/createAsyncThunk) could use some improvement but it makes an interesting starting point for a client-side first design. I'd expect to expand it out to handle server timeouts and errors in a fully async fashion, with toasts messages or similar to notify users.
+The current code layout should make adding PWA functionality easy as it's a redux first flow were we can write locally first and then try the API later.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
