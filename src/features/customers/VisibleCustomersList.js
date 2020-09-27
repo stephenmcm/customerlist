@@ -6,15 +6,18 @@ import CustomerList from "./CustomerList";
 const selectCustomers = (state) => state.customers.byID;
 const searchFilter = (state) => state.visibilityFilter.searchString;
 
-const selectVisibleCustomers = createSelector(
+// @TODO Exporting to write tests for this feels wrong. Research if there's a better pattern
+export const selectVisibleCustomers = createSelector(
   [selectCustomers, searchFilter],
   (customers, filter) => {
-    if (filter.length > 2) {
-      return Object.values(customers).filter((c) =>
-        c.searchText.includes(filter)
-      );
+    const search = filter.toLowerCase().split(" ");
+    let result = Object.values(customers);
+    if (search.length) {
+      search.forEach((searchString) => {
+        result = result.filter((c) => c.searchText.includes(searchString));
+      });
     }
-    return Object.values(customers);
+    return result;
   }
 );
 

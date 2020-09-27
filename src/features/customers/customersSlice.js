@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// @TODO swapp to UUIDs or otherwise handle this better as when it gets out of
+// sync with the list we risk overwritting data
 let nextcustomerId = 0;
 
 const intialDummyState = {
@@ -41,7 +43,7 @@ const intialDummyState = {
 
 const customersSlice = createSlice({
   name: "customers",
-  initialState: intialDummyState,
+  initialState: { byID: {} },
   reducers: {
     addCustomer: {
       reducer(state, action) {
