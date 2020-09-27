@@ -21,7 +21,6 @@ describe("customers reducer", () => {
             firstName: "Test",
             id: 0,
             lastName: "User",
-            searchText: "Test User",
           },
         }
       )
@@ -33,7 +32,7 @@ describe("customers reducer", () => {
           firstName: "Test",
           id: 0,
           lastName: "User",
-          searchText: "Test User",
+          searchText: "test user",
         },
       },
     });
@@ -48,7 +47,7 @@ describe("customers reducer", () => {
               firstName: "Test",
               id: 0,
               lastName: "User",
-              searchText: "Test User",
+              searchText: "test user",
             },
           },
         },
@@ -60,7 +59,7 @@ describe("customers reducer", () => {
             firstName: "Other",
             id: 1,
             lastName: "Test",
-            searchText: "Other Test",
+            searchText: "other test",
           },
         }
       )
@@ -72,7 +71,7 @@ describe("customers reducer", () => {
           firstName: "Test",
           id: 0,
           lastName: "User",
-          searchText: "Test User",
+          searchText: "test user",
         },
         1: {
           dateOfBirth: "01/02/2019",
@@ -80,7 +79,7 @@ describe("customers reducer", () => {
           firstName: "Other",
           id: 1,
           lastName: "Test",
-          searchText: "Other Test",
+          searchText: "other test",
         },
       },
     });
@@ -97,7 +96,7 @@ describe("customers reducer", () => {
               firstName: "Test",
               id: 0,
               lastName: "User",
-              searchText: "Test User",
+              searchText: "test user",
             },
             1: {
               dateOfBirth: "01/02/2019",
@@ -105,7 +104,7 @@ describe("customers reducer", () => {
               firstName: "Other",
               id: 1,
               lastName: "Test",
-              searchText: "Other Test",
+              searchText: "other test",
             },
           },
         },
@@ -122,7 +121,7 @@ describe("customers reducer", () => {
           firstName: "Test",
           id: 0,
           lastName: "User",
-          searchText: "Test User",
+          searchText: "test user",
         },
         1: {
           dateOfBirth: "01/02/2019",
@@ -130,7 +129,7 @@ describe("customers reducer", () => {
           firstName: "Other",
           id: 1,
           lastName: "Test",
-          searchText: "Other Test",
+          searchText: "other test",
         },
       },
     });
@@ -147,7 +146,7 @@ describe("customers reducer", () => {
               firstName: "Test",
               id: 0,
               lastName: "User",
-              searchText: "Test User",
+              searchText: "test user",
             },
             1: {
               dateOfBirth: "01/02/2019",
@@ -155,7 +154,7 @@ describe("customers reducer", () => {
               firstName: "Other",
               id: 1,
               lastName: "Test",
-              searchText: "Other Test",
+              searchText: "other test",
             },
           },
         },
@@ -177,7 +176,7 @@ describe("customers reducer", () => {
           deleted: false,
           firstName: "Test",
           lastName: "Edited",
-          searchText: "Test Edited",
+          searchText: "test edited",
         },
         1: {
           dateOfBirth: "01/02/2019",
@@ -185,7 +184,7 @@ describe("customers reducer", () => {
           firstName: "Other",
           id: 1,
           lastName: "Test",
-          searchText: "Other Test",
+          searchText: "other test",
         },
       },
     });
